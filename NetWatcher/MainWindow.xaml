@@ -1,0 +1,31 @@
+﻿<Window x:Class="NetWatcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NetWatcher"
+        mc:Ignorable="d"
+        Title="ABBNetWatcher" Height="450" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" ItemsSource="{Binding ControllersList}" Margin="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding IPAddress}" Width="Auto">IP adress</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Width="Auto">Id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Availability}" Width="Auto">Available</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding IsVirtual}" Width="Auto">Virtual</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding SystemName}" Width="Auto">System name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding RWVersion}" Width="Auto">RobotWare</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding ControllerName}" Width="Auto">Controller name</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StatusBar Grid.Row="1" Margin="5,0,5,2">
+            <Label Content="{Binding StatusBarContent}"></Label>
+        </StatusBar>
+    </Grid>
+</Window>
